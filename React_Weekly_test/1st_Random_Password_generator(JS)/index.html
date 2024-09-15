@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Password Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <div class="container">
@@ -17,11 +18,11 @@
             placeholder="your Password......."
             readonly
           />
-          <button onclick="" id="copyPassword"></button>
+          <button onclick="" id="copyPassword"><i class="fa-solid fa-copy"></i></button>
         </div>
-        <label>Select Password length (8-128 characters)</label>
+        <label>Select Password length (8-128 characters) : </label>
         <input type="number" id="lengthInput" min="8" max="64" value="8" />
-        <div>
+        <div class="checkbox">
           <label
             ><input type="checkbox" id="uppercase" checked /> Include
             uppercase</label
