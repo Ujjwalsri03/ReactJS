@@ -21,6 +21,11 @@
     gap: 1rem;
 }
 
+.outputBtns span{
+    font-size: 16px;
+    margin: auto;
+}
+
 .minus{
     font-weight: bold;
     padding: 3px 7px;
