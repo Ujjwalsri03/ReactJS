@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App{
+    background-color: rgb(213, 255, 213);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.App h1{
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 35px;
+    font-family:Arial, Helvetica, sans-serif;
+    letter-spacing: 0.2mm;
+}
+
+.App form{
+    margin: auto;
+    margin-top: 0;
+    padding-top: 2.5rem;
+    font-size: 23px;
+    margin-bottom: 0;
+}
+
+.App form input{
+    padding: 5px 8px;
+    max-width:70px;
+    margin: 0px 0.6rem;
+    border: 1px solid black;
+    box-shadow: 0px 0px 3px;
+}
+
+.App form button{
+    padding: 7px 15px;
+    background-color: #882020;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    letter-spacing: 0.1mm;
+    border-radius: 5px;
+    margin: auto;
+    box-shadow: 0px 0px 5px;
+    transition: all 0.5s ease;
+    border: none;
+    align-items: center;
+}
+
+.App form button:hover{
+    background-color: #ff5959;
+    scale: 0.96;
+    color: black;
+    transform: translateY(-2px);
+    
+}
+
+.App form button:active{
+    transform: translateY(0px);
+}

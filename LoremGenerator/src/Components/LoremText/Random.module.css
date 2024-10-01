@@ -1,0 +1,21 @@
+.loremTxt{
+    margin-top: 1rem;
+    width: 50%;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem ;
+    align-items: center;
+    
+}
+
+.text{
+    font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    letter-spacing: 0.1mm;
+    line-height: 6mm;
+    color: black;
+    font-family: 500;
+}
