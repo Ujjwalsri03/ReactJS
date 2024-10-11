@@ -6,9 +6,11 @@ function App() {
   
 
   return (
+    <>
+    <h1 className='main-heading'>Translate your Text Here</h1>
     <div className='container'>
        < Translator />
-    </div>
+    </div></>
   )
 }
 
