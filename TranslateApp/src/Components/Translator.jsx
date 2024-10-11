@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { MdVolumeUp } from "react-icons/md";
 import { FaCopy } from "react-icons/fa6";
 import { FaExchangeAlt } from "react-icons/fa";
-import languages from "../languages"
+import axios from 'axios'; 
+import languages from "../languages";
 
 function Translator() {
     const [fromText, setFromText] = useState('');
@@ -10,7 +11,7 @@ function Translator() {
     const [fromLang, setFromLang] = useState('en-GB');
     const [toLang, setToLang] = useState('hi-IN');
     const [loading, setLoading] = useState(false);
-    
+
     const handleExchange = () => {
         let tempValue = fromText;
         setFromText(toText);
@@ -27,20 +28,20 @@ function Translator() {
     }
 
     const utterText = (text, lang) => {
-       const synth = window.speechSynthesis;
-       const utterance = new SpeechSynthesisUtterance(text);
-       utterance.lang = lang; // Corrected to set the language
-       synth.speak(utterance);
+        const synth = window.speechSynthesis;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang; // Corrected to set the language
+        synth.speak(utterance);
     }
 
-    const handleIconClick = (target, id) => {
-        if (target.classList.contains('copy')) {
+    const handleIconClick = (action, id) => {
+        if (action === 'copy') {
             if (id === 'from') {
                 copyContent(fromText);
             } else {
                 copyContent(toText);
             }
-        } else {
+        } else if (action === 'speak') {
             if (id === 'from') {
                 utterText(fromText, fromLang);
             } else {
@@ -51,10 +52,13 @@ function Translator() {
 
     const handleTranslate = async () => {
         setLoading(true);
-        let url = `https://api.mymemory.translated.net/get?q=${fromText}&langpair=${fromLang}|${toLang}`;
-        const res = await fetch(url);
-        const data = await res.json();
-        setToText(data.responseData.translatedText);
+        try {
+            const url = `https://api.mymemory.translated.net/get?q=${fromText}&langpair=${fromLang}|${toLang}`;
+            const res = await axios.get(url); // Use axios to fetch the API
+            setToText(res.data.responseData.translatedText);
+        } catch (error) {
+            console.error("Error fetching translation:", error);
+        }
         setLoading(false);
     }
 
@@ -82,8 +86,8 @@ function Translator() {
                 <ul className='controls'>
                     <li className='row from'>
                         <div className='icons'>
-                            <MdVolumeUp className='iconfrom' onClick={(e) => handleIconClick(e.target, 'from')} />
-                            <FaCopy className='copy' id='from' onClick={(e) => handleIconClick(e.target, 'from')} />
+                            <MdVolumeUp className='iconfrom' onClick={() => handleIconClick('speak', 'from')} />
+                            <FaCopy className='copy' id='from' onClick={() => handleIconClick('copy', 'from')} />
                         </div>
                         <select value={fromLang} onChange={(e) => setFromLang(e.target.value)}>
                             {Object.entries(languages).map(([code, name]) => (
@@ -99,8 +103,8 @@ function Translator() {
                             ))}
                         </select>
                         <div className='icons'>
-                            <FaCopy className='copy' id='to' onClick={(e) => handleIconClick(e.target, 'to')} />
-                            <MdVolumeUp className='iconfrom' onClick={(e) => handleIconClick(e.target, 'to')} />
+                            <FaCopy className='copy' id='to' onClick={() => handleIconClick('copy', 'to')} />
+                            <MdVolumeUp className='iconfrom' onClick={() => handleIconClick('speak', 'to')} />
                         </div>
                     </li>
                 </ul>
