@@ -1,0 +1,87 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.App {
+  background:#eae6e6;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 40px;
+  margin-bottom: 40px;
+  font-style: oblique;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.App input{
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 40%;
+  max-width: 300px;
+  padding: 8px 15px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  margin: auto;
+}
+
+
+.image-grid {
+  columns: 4; 
+  column-gap: 15px;
+  padding: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.image-grid img {
+  width: 100%;
+  margin-bottom: 5px; 
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.5s ease;
+}
+
+.image-item:hover img{
+  transform: scale(1.05);
+}
+
+
+.image-grid p{
+  font-size: 17px;
+  text-align: center;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.loading {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 18px;
+}
