@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          <h1>Person Information Manager</h1>
+          <h1>Directory App</h1>
         </header>
 
         <div className="tabs">
